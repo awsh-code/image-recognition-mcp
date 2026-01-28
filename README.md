@@ -8,7 +8,7 @@ This MCP server enables AI assistants to analyze and describe images through a s
 
 ## Features
 
-- **Image Analysis**: Analyze images from URLs and get detailed descriptions
+- **Image Analysis**: Analyze images from URLs or local file paths and get detailed descriptions
 - **OpenAI Integration**: Uses OpenAI's latest vision models for accurate image recognition
 - **MCP Protocol**: Fully compatible with the Model Context Protocol standard
 - **TypeScript**: Built with TypeScript for type safety and better development experience
@@ -33,34 +33,47 @@ To use this server with an MCP client, add the following configuration:
       "command": "npx",
       "args": ["-y", "@mcp-s/image-recognition-mcp"],
       "env": {
-        "OPENAI_API_KEY": "your-actual-openai-api-key-here"
+        "OPENAI_API_KEY": "your-actual-openai-api-key-here",
+        "OPENAI_BASE_URL": "https://api.openai.com/v1",
+        "OPENAI_MODEL": "gpt-4o-mini"
       }
     }
   }
 }
 ```
 
-**⚠️ IMPORTANT:** The `env` section with your OpenAI API key is required - this is the only way the MCP server can function.
+**⚠️ IMPORTANT:** The `env` section with your OpenAI API key is required. `OPENAI_BASE_URL` and `OPENAI_MODEL` are optional. `OPENAI_MODEL` defaults to `gpt-4o-mini`.
 
 ## Usage
 
 ### Available Tools
 
 #### `describe-image`
-
-Analyzes an image from a URL and provides a detailed description.
+  
+Analyzes an image from a URL or a local file path and provides a detailed description.
 
 **Parameters:**
 
-- `imageUrl` (string): The URL of the image to analyze
+- `imageUrl` (string): The URL or local file path of the image to analyze
 
-**Example:**
+**Example (URL):**
 
 ```json
 {
   "tool": "describe-image",
   "arguments": {
     "imageUrl": "https://example.com/image.jpg"
+  }
+}
+```
+
+**Example (Local File):**
+
+```json
+{
+  "tool": "describe-image",
+  "arguments": {
+    "imageUrl": "/path/to/your/local/image.png"
   }
 }
 ```
