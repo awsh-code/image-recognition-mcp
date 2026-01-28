@@ -31,9 +31,11 @@
   "license": "ISC",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.15.0",
+    "mime-types": "^3.0.2",
     "openai": "^5.8.3"
   },
   "devDependencies": {
+    "@types/mime-types": "^3.0.1",
     "@types/node": "^24.0.12",
     "shx": "^0.4.0",
     "typescript": "^5.0.0"
