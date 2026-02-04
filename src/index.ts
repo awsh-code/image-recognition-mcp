@@ -39,7 +39,10 @@ server.registerTool(
     },
   },
   async ({ imageUrl }) => {
-    const model = process.env.OPENAI_MODEL || "gpt-4o-mini";
+    const defaultModel = process.env.OPENAI_BASE_URL?.includes("openrouter.ai") 
+      ? "google/gemma-3-27b-it:free" 
+      : "gpt-4o-mini";
+    const model = process.env.OPENAI_MODEL || defaultModel;
     try {
       let finalImageUrl = imageUrl;
 

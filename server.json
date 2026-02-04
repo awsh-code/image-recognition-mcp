@@ -33,7 +33,7 @@
           "name": "OPENAI_BASE_URL"
         },
         {
-          "description": "Optional OpenAI model to use for image recognition (defaults to gpt-4o-mini)",
+          "description": "Optional OpenAI model to use for image recognition (defaults to gpt-4o-mini, or google/gemma-3-27b-it:free if using OpenRouter)",
           "is_required": false,
           "format": "string",
           "is_secret": false,
