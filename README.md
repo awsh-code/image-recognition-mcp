@@ -34,15 +34,19 @@ To use this server with an MCP client, add the following configuration:
       "args": ["-y", "@mcp-s/image-recognition-mcp"],
       "env": {
         "OPENAI_API_KEY": "your-actual-openai-api-key-here",
-        "OPENAI_BASE_URL": "https://api.openai.com/v1",
-        "OPENAI_MODEL": "gpt-4o-mini"
+        "OPENAI_BASE_URL": "https://openrouter.ai/api/v1",
+        "OPENAI_MODEL": "google/gemma-3-27b-it:free"
       }
     }
   }
 }
 ```
 
-**⚠️ IMPORTANT:** The `env` section with your OpenAI API key is required. `OPENAI_BASE_URL` and `OPENAI_MODEL` are optional. `OPENAI_MODEL` defaults to `gpt-4o-mini`.
+**⚠️ IMPORTANT:** The `env` section with your OpenAI API key is required. `OPENAI_BASE_URL` and `OPENAI_MODEL` are optional. 
+
+### Smart Defaults
+- **OpenRouter**: If `OPENAI_BASE_URL` contains `openrouter.ai`, the model defaults to `google/gemma-3-27b-it:free`.
+- **OpenAI**: Otherwise, it defaults to `gpt-4o-mini`.
 
 ## Usage
 
